@@ -18,12 +18,12 @@ class CreateImportMaterialsTable extends Migration
             $table->string('shop_code',255);
             $table->integer('material_id');
             $table->decimal('price');
-            $table->integer('purchase_type');
+            $table->integer('purchase_type_id');
             $table->integer('import_count');
             $table->decimal('total_price');
             $table->softDeletes('deleted_at');
-            $table->integer('created_emp');
-            $table->integer('updated_emp');
+            $table->string('created_emp');
+            $table->string('updated_emp');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

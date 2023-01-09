@@ -16,9 +16,9 @@ class CreateMaterialsTable extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->string('shop_code',255);
-            $table->integer('material_id');
             $table->string('name',255);
-            $table->integer('purchase_type');
+            $table->decimal('price');
+            $table->integer('purchase_type_id');
             $table->softDeletes('deleted_at');
             $table->integer('created_emp');
             $table->integer('updated_emp');

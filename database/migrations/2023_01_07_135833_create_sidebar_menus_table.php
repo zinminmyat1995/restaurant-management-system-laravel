@@ -20,7 +20,7 @@ class CreateSidebarMenusTable extends Migration
             $table->integer('role');
             $table->string('controller');
             $table->string('method');
-            $table->timestamp('deleted_at')->useCurrent();
+            $table->softDeletes('deleted_at');
             $table->timestamp('created_date')->useCurrent();
             $table->timestamp('updated_date')->useCurrent();
         });

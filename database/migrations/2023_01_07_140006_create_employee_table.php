@@ -24,7 +24,7 @@ class CreateEmployeeTable extends Migration
             $table->integer('phone_number');
             $table->string('address');
             $table->integer('role');
-            $table->timestamp('deleted_at')->useCurrent();
+            $table->softDeletes('deleted_at');
             $table->string('created_emp');
             $table->string('updated_emp');
             $table->timestamp('created_at')->useCurrent();

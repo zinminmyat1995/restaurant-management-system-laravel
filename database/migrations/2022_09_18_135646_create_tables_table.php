@@ -18,7 +18,9 @@ class CreateTablesTable extends Migration
             $table->string('shop_code',255);
             $table->integer('table_number');
             $table->integer('seat_count');
-            $table->integer('floor');
+            $table->integer('import_seat_count');
+            $table->integer('remain_seat_count');
+            $table->integer('floor'); // floor => 1,2,3,4,5
             $table->softDeletes('deleted_at');
             $table->integer('created_emp');
             $table->integer('updated_emp');
