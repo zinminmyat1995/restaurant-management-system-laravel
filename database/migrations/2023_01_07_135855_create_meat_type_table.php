@@ -16,7 +16,7 @@ class CreateMeatTypeTable extends Migration
         Schema::create('meat_type', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamp('deleted_at')->useCurrent();
+            $table->softDeletes('deleted_at');
             $table->string('created_emp');
             $table->string('updated_emp');
             $table->timestamp('created_date')->useCurrent();

@@ -18,8 +18,10 @@ class CreateOrderMenuTable extends Migration
             $table->string('shop_code');
             $table->integer('order_id');
             $table->integer('menu_id');
+            $table->integer('count');
             $table->integer('price');
-            $table->timestamp('deleted_at')->useCurrent();
+            $table->integer('total_price');
+            $table->softDeletes('deleted_at');
             $table->string('created_emp');
             $table->string('updated_emp');
             $table->timestamp('created_at')->useCurrent();

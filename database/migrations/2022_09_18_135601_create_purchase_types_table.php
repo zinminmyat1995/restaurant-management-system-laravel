@@ -15,11 +15,10 @@ class CreatePurchaseTypesTable extends Migration
     {
         Schema::create('purchase_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('purchase_type');
             $table->string('name',255);
             $table->softDeletes('deleted_at');
-            $table->integer('created_emp');
-            $table->integer('updated_emp');
+            $table->string('created_emp');
+            $table->string('updated_emp');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

@@ -21,7 +21,7 @@ class CreateOrderTable extends Migration
             $table->integer('import_seat_count');
             $table->integer('total_price');
             $table->integer('paid');
-            $table->timestamp('deleted_at')->useCurrent();
+            $table->softDeletes('deleted_at');
             $table->string('created_emp');
             $table->string('updated_emp');
             $table->timestamp('created_at')->useCurrent();
