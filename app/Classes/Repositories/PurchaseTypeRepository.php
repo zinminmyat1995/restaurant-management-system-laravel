@@ -2,6 +2,7 @@
 namespace App\Classes\Repositories;
 
 use App\Interfaces\PurchaseTypeRepositoryInterface;
+use App\Models\Material;
 use App\Models\Menu;
 use App\Models\PurchaseType;
 use Illuminate\Support\Facades\Log;
@@ -54,7 +55,7 @@ class PurchaseTypeRepository implements PurchaseTypeRepositoryInterface
 	 */
 	public function getLatestMaterial(int $PurchaseTypeId) {
         try{
-            return Menu::where("purchase_type_id",$PurchaseTypeId)->count();
+            return Material::where("purchase_type_id",$PurchaseTypeId)->count();
         }catch(Exception $e){
             Log::debug($e->getMessage() ."\n" . $e->getTraceAsString());
             return false;
