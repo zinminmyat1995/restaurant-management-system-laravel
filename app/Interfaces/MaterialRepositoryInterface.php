@@ -1,9 +1,9 @@
 <?php
 namespace App\Interfaces;
 
-use App\Models\Menu;
+use App\Models\Material;
 
-interface MenuRepositoryInterface
+interface MaterialRepositoryInterface
 {
     function register(Menu $menu);
 }

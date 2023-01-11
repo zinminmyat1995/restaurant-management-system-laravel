@@ -1,10 +1,10 @@
 <?php
 namespace App\Classes\Repositories;
 
-use App\Interfaces\MenuRepositoryInterface;
+use App\Interfaces\MaterialRepositoryInterface;
 use App\Models\Menu;
 
-class MenuRepository implements MenuRepositoryInterface
+class MaterialRepository implements MaterialRepositoryInterface
 {
     function __construct()
     {
