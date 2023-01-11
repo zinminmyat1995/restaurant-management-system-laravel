@@ -52,7 +52,7 @@ class PurchaseTypeRepository implements PurchaseTypeRepositoryInterface
 	/**
 	 * @return integer
 	 */
-	public function getLatestMenu(int $PurchaseTypeId) {
+	public function getLatestMaterial(int $PurchaseTypeId) {
         try{
             return Menu::where("purchase_type_id",$PurchaseTypeId)->count();
         }catch(Exception $e){

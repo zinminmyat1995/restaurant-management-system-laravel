@@ -41,7 +41,7 @@ class PurchaseTypeController extends Controller
     }
     public function getLatestMenu(int $id){
         try {
-            $menucount = $this->repository->getLatestMenu($id);
+            $menucount = $this->repository->getLatestMaterial($id);
             if (is_numeric(trim($menucount))) {
                 $menucount++;
                 return response()->json(["status" => "OK", "data" => $menucount], 200);
