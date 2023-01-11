@@ -5,28 +5,41 @@ use App\Interfaces\PurchaseTypeRepositoryInterface;
 use App\Models\Menu;
 use App\Models\PurchaseType;
 use Illuminate\Support\Facades\Log;
+use Exception;
 
 class PurchaseTypeRepository implements PurchaseTypeRepositoryInterface
 {
     function register($storeableArray)
     {
-        $count=PurchaseType::create($storeableArray);
-        if($count){
-            Log::info("Deleted Successfully");
-            return true;
+        try{
+            $count=PurchaseType::create($storeableArray);
+            if($count){
+                Log::info("Deleted Successfully");
+                return true;
+            }
+            Log::info("Cannot Create Item");
+            return false;
+        }catch(Exception $e){
+            Log::debug($e->getMessage() ."\n" . $e->getTraceAsString());
+            return false;
         }
-        Log::info("Cannot Create Item");
-        return false;
+
     }
     function delete(int $PurchaseTypeId)
     {
-        $deleted = PurchaseType::where("id", $PurchaseTypeId)->delete();
-        if ($deleted) {
-            Log::info("Deleted Successfully");
-            return true;
+        try{
+            $deleted = PurchaseType::where("id", $PurchaseTypeId)->delete();
+            if ($deleted) {
+                Log::info("Deleted Successfully");
+                return true;
+            }
+            Log::info("Item Not Found");
+            return false;
+        }catch(Exception $e){
+            Log::debug($e->getMessage() ."\n" . $e->getTraceAsString());
+            return false;
         }
-        Log::info("Item Not Found");
-        return false;
+
     }
     function getAll()
     {
@@ -36,5 +49,16 @@ class PurchaseTypeRepository implements PurchaseTypeRepositoryInterface
         ])->get();
         return $data;
     }
+	/**
+	 * @return integer
+	 */
+	public function getLatestMenu(int $PurchaseTypeId) {
+        try{
+            return Menu::where("purchase_type_id",$PurchaseTypeId)->count();
+        }catch(Exception $e){
+            Log::debug($e->getMessage() ."\n" . $e->getTraceAsString());
+            return false;
+        }
+	}
 }
 ?>
