@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\{MenuRepositoryInterface,PurchaseTypeRepositoryInterface};
-use App\Classes\Repositories\{MenuRepository, PurchaseTypeRepository};
+use App\Interfaces\{MaterialRepositoryInterface,PurchaseTypeRepositoryInterface,MenuListRepositoryInterface};
+use App\Classes\Repositories\{MaterialRepository, PurchaseTypeRepository,MenuListRepository};
 
 class RepositoryProvider extends ServiceProvider
 {
@@ -15,8 +15,9 @@ class RepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(MenuRepositoryInterface::class,MenuRepository::class);
+        $this->app->bind(MaterialRepositoryInterface::class,MaterialRepository::class);
         $this->app->bind(PurchaseTypeRepositoryInterface::class,PurchaseTypeRepository::class);
+        $this->app->bind(MenuListRepositoryInterface::class,MenuListRepository::class);
     }
 
     /**
@@ -26,6 +27,6 @@ class RepositoryProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+
     }
 }
