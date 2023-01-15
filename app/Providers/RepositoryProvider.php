@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\{MaterialRepositoryInterface,PurchaseTypeRepositoryInterface};
-use App\Classes\Repositories\{MaterialRepository, PurchaseTypeRepository};
+use App\Interfaces\{MaterialRepositoryInterface,PurchaseTypeRepositoryInterface,MenuListRepositoryInterface};
+use App\Classes\Repositories\{MaterialRepository, PurchaseTypeRepository,MenuListRepository};
 
 class RepositoryProvider extends ServiceProvider
 {
@@ -17,6 +17,7 @@ class RepositoryProvider extends ServiceProvider
     {
         $this->app->bind(MaterialRepositoryInterface::class,MaterialRepository::class);
         $this->app->bind(PurchaseTypeRepositoryInterface::class,PurchaseTypeRepository::class);
+        $this->app->bind(MenuListRepositoryInterface::class,MenuListRepository::class);
     }
 
     /**

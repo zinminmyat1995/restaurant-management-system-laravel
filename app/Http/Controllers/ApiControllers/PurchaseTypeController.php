@@ -24,7 +24,7 @@ class PurchaseTypeController extends Controller
         if($bool){
             return response()->json(["status" => "OK", "message" => "Create Successfully"], 200);
         }
-        return response()->json(["status" => "NG", "message" => "Create fail"], 200);
+        return response()->json(["status" => "NG", "message" => "Create Fail"], 200);
     }
 
     public function delete(PurchaseTypeDeleteRequest $request){

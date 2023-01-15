@@ -5,5 +5,5 @@ use App\Models\Material;
 
 interface MaterialRepositoryInterface
 {
-    function register(Menu $menu);
+    function store(array $storeableArray);
 }

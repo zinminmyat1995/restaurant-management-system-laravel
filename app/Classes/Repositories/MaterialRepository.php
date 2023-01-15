@@ -11,7 +11,7 @@ class MaterialRepository implements MaterialRepositoryInterface
     {
 
     }
-    function register($storeableArray)
+    function store(array $storeableArray)
     {
         $success = Material::insert($storeableArray);
         if ($success) {
