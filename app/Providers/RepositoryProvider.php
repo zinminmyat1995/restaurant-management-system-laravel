@@ -7,6 +7,8 @@ use App\Interfaces\{MenuRepositoryInterface,PurchaseTypeRepositoryInterface};
 use App\Classes\Repositories\{MenuRepository, PurchaseTypeRepository};
 use App\Interfaces\{ShopTabletRegisterInterface};
 use App\Classes\Repositories\{ShopTabletRegisterRepository};
+use App\Interfaces\{MaterialRepositoryInterface,PurchaseTypeRepositoryInterface,MenuListRepositoryInterface};
+use App\Classes\Repositories\{MaterialRepository, PurchaseTypeRepository,MenuListRepository};
 
 class RepositoryProvider extends ServiceProvider
 {
@@ -17,10 +19,14 @@ class RepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(MenuRepositoryInterface::class,MenuRepository::class);
+        $this->app->bind(MaterialRepositoryInterface::class,MaterialRepository::class);
         $this->app->bind(PurchaseTypeRepositoryInterface::class,PurchaseTypeRepository::class);
+<<<<<<< HEAD
         $this->app->bind(ShopTabletRegisterInterface::class,ShopTabletRegisterRepository::class);
 
+=======
+        $this->app->bind(MenuListRepositoryInterface::class,MenuListRepository::class);
+>>>>>>> 17a165328d7899ff33fad37358649fce3261be23
     }
 
     /**
@@ -30,6 +36,6 @@ class RepositoryProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+
     }
 }
