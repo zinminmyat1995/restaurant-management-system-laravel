@@ -19,8 +19,8 @@ class CreateMeatTypeTable extends Migration
             $table->softDeletes('deleted_at');
             $table->string('created_emp');
             $table->string('updated_emp');
-            $table->timestamp('created_date')->useCurrent();
-            $table->timestamp('updated_date')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

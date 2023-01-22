@@ -17,7 +17,7 @@ class CreateOrderMenuTable extends Migration
             $table->id();
             $table->string('shop_code');
             $table->integer('order_id');
-            $table->integer('menu_id');
+            $table->string('menu_code');
             $table->integer('count');
             $table->integer('price');
             $table->integer('total_price');
