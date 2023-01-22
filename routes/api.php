@@ -31,3 +31,7 @@ Route::group(["prefix" => "/material-management", "as" => "purchase_types."], fu
 Route::group(["prefix" => "/menu-management", "as" => "menus."], function () {
     Route::get("/get-menu-list", [App\Http\Controllers\ApiControllers\MenuListcontroller::class, "index"])->name("list");
 });
+Route::prefix('shop-and-tablet-register')->group(function () {
+    Route::post('save', 'ApiControllers\ShopAndMenuTabletRegisterController@save');
+    Route::get('index', 'ApiControllers\ShopAndMenuTabletRegisterController@index');
+});
