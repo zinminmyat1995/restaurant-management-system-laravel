@@ -23,3 +23,8 @@ Route::group(["prefix" => "/menu-management/purchasetype","as"=>"purchase_types.
     Route::post("/", [App\Http\Controllers\ApiControllers\PurchaseTypeController::class, "create"])->name("create");
     Route::delete("/", [App\Http\Controllers\ApiControllers\PurchaseTypeController::class, "delete"])->name("delete");
 });
+
+Route::prefix('shop-and-tablet-register')->group(function () {
+    Route::post('save', 'ApiControllers\ShopAndMenuTabletRegisterController@save');
+    Route::get('index', 'ApiControllers\ShopAndMenuTabletRegisterController@index');
+});
