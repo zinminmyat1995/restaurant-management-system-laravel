@@ -3,12 +3,14 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\{MenuRepositoryInterface,PurchaseTypeRepositoryInterface,MenuRegistrationInterface,MenuListRepositoryInterface};
-use App\Classes\Repositories\{MenuRepository, PurchaseTypeRepository,MenuRegistrationRepository,MenuListRepository};
+use App\Interfaces\{MenuRepositoryInterface,PurchaseTypeRepositoryInterface,MenuListRepositoryInterface};
+use App\Classes\Repositories\{MenuRepository, PurchaseTypeRepository,MenuListRepository};
 use App\Interfaces\{ShopTabletRegisterInterface};
 use App\Classes\Repositories\{ShopTabletRegisterRepository};
 use App\Classes\Repositories\{ShopTabletListRepository};
 use App\Interfaces\{ShopTabletListInterface}; 
+use App\Interfaces\{MenuRegistrationInterface,ShopRegistrationRepositoryInterface}; 
+use App\Classes\Repositories\{MenuRegistrationRepository,ShopRegistrationRepository};
 
  
 class RepositoryProvider extends ServiceProvider
@@ -26,7 +28,7 @@ class RepositoryProvider extends ServiceProvider
         $this->app->bind(MenuListRepositoryInterface::class,MenuListRepository::class);
         $this->app->bind(ShopTabletRegisterInterface::class,ShopTabletRegisterRepository::class);
         $this->app->bind(ShopTabletListInterface::class,ShopTabletListRepository::class);
-         
+        $this->app->bind(ShopRegistrationRepositoryInterface::class,ShopRegistrationRepository::class);
     }
 
     /**
