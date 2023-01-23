@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(["prefix" => "/menu-management/purchasetype","as"=>"purchase_types."], function () {
+Route::group(["prefix" => "/material-management/purchasetype","as"=>"purchase_types."], function () {
     Route::get("/", [App\Http\Controllers\ApiControllers\PurchaseTypeController::class, "index"])->name("index");
     Route::post("/", [App\Http\Controllers\ApiControllers\PurchaseTypeController::class, "create"])->name("create");
     Route::delete("/", [App\Http\Controllers\ApiControllers\PurchaseTypeController::class, "delete"])->name("delete");
@@ -39,3 +39,16 @@ Route::delete('/menu-registration/remove-menu-type',[App\Http\Controllers\ApiCon
 Route::delete('/menu-registration/remove-meat',[App\Http\Controllers\ApiControllers\MenuRegistrationController::class,"removeMeat"]);
 
 
+Route::get("/get-material-count/{id}", [App\Http\Controllers\ApiControllers\PurchaseTypeController::class, "getLatestMenu"])->name("getLatestMenu");
+
+Route::group(["prefix" => "/material-management", "as" => "purchase_types."], function () {
+    Route::get("/create", [App\Http\Controllers\ApiControllers\MaterialController::class,"create"])->name("create");
+    Route::post("/store", [App\Http\Controllers\ApiControllers\MaterialController::class,"store"])->name("store");
+});
+Route::group(["prefix" => "/menu-management", "as" => "menus."], function () {
+    Route::get("/get-menu-list", [App\Http\Controllers\ApiControllers\MenuListcontroller::class, "index"])->name("list");
+});
+Route::prefix('shop-and-tablet-register')->group(function () {
+    Route::post('save', 'ApiControllers\ShopAndMenuTabletRegisterController@save');
+    Route::get('index', 'ApiControllers\ShopAndMenuTabletRegisterController@index');
+});
