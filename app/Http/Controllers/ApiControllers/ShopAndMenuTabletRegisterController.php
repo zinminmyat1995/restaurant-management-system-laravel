@@ -48,9 +48,16 @@ class ShopAndMenuTabletRegisterController extends Controller
             return response()->json([
                 'status' => 'NG',
                 'admin' => $admin,
-                'message' =>  "Data"
+                'message' =>  "Data is not found!"
             ],200);
         }else{
+       
+
+
+
+            return $shopData;
+
+
             return response()->json([
                 'status' => 'OK',
                 'admin' => $admin,
