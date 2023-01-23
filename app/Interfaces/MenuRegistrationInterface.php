@@ -5,7 +5,7 @@ use App\Models\Menu;
 
 interface MenuRegistrationInterface
 {
-    function getMenu();
+    function getMenu($request);
     function menuRegister($request);
     function getMenuCategory();
     function getMenuType();

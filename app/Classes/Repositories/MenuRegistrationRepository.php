@@ -1,6 +1,7 @@
 <?php
 namespace App\Classes\Repositories;
 
+use App\Models\Employee;
 use Exception;
 use App\Models\Meat;
 use App\Models\Menu;
@@ -13,11 +14,13 @@ use App\Interfaces\MenuRegistrationInterface;
 
 class MenuRegistrationRepository implements MenuRegistrationInterface
 {
-    function getMenu(){
+    function getMenu($request){
+        $login_id = $request->login_id;
       
-        $menu = Menu::select('shops.shop_name as shop_name','shops.shop_code as shop_code')
-                    ->leftjoin('shops','shops.shop_code','=','menus.shop_code')
-                    ->whereNull('shops.deleted_at')->distinct()->get();
+        $menu = Employee::select('shops.shop_name as shop_name','shops.shop_code as shop_code')
+                    ->leftjoin('shops','shops.shop_code','=','employee.shop_code')
+                    ->where('employee.employee_id',$login_id)
+                    ->whereNull('shops.deleted_at')->distinct()->first();
         return $menu;
     }
     function menuRegister($request){

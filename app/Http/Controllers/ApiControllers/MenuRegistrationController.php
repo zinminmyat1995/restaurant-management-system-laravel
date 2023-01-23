@@ -16,9 +16,8 @@ class MenuRegistrationController extends Controller
         $this->repository = $repository;
     }
 
-    public function getMenu(){
-        $data = $this->repository->getMenu();
-        die($data);
+    public function getMenu(Request $request){
+        $data = $this->repository->getMenu($request);
         return $data;
     }
 

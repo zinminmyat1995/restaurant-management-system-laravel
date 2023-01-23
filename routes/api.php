@@ -52,3 +52,11 @@ Route::prefix('shop-and-tablet-register')->group(function () {
     Route::post('save', 'ApiControllers\ShopAndMenuTabletRegisterController@save');
     Route::get('index', 'ApiControllers\ShopAndMenuTabletRegisterController@index');
 });
+<<<<<<< HEAD
+=======
+Route::prefix('shop-and-tablet-list')->group(function () {
+    Route::get('search', 'ApiControllers\ShopAndMenuTabletListController@search');
+    Route::delete('delete', 'ApiControllers\ShopAndMenuTabletListController@delete');
+    Route::post('update', 'ApiControllers\ShopAndMenuTabletListController@update');
+});
+>>>>>>> 1c3259240009da9fbd3c2c1eaabab8ed1a55b2d3
