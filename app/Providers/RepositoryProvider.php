@@ -7,6 +7,8 @@ use App\Interfaces\{MaterialRepositoryInterface,PurchaseTypeRepositoryInterface,
 use App\Classes\Repositories\{MaterialRepository, PurchaseTypeRepository,MenuListRepository};
 use App\Interfaces\{ShopTabletRegisterInterface};
 use App\Classes\Repositories\{ShopTabletRegisterRepository};
+use App\Classes\Repositories\{ShopTabletListRepository};
+use App\Interfaces\{ShopTabletListInterface}; 
 
  
 class RepositoryProvider extends ServiceProvider
@@ -22,6 +24,8 @@ class RepositoryProvider extends ServiceProvider
         $this->app->bind(PurchaseTypeRepositoryInterface::class,PurchaseTypeRepository::class);
         $this->app->bind(MenuListRepositoryInterface::class,MenuListRepository::class);
         $this->app->bind(ShopTabletRegisterInterface::class,ShopTabletRegisterRepository::class);
+        $this->app->bind(ShopTabletListInterface::class,ShopTabletListRepository::class);
+         
     }
 
     /**
