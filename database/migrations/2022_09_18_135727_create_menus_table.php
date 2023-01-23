@@ -16,7 +16,7 @@ class CreateMenusTable extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('shop_code',255);
-            $table->integer('menu_id');
+            $table->string('menu_code');
             $table->string('menu_name',255);
             $table->string('menu_category_id',255); //menu_category => Indian food,Myanmar food,etc
             $table->integer('menu_type_id'); //menu_type=>Boiled,drink,etc 

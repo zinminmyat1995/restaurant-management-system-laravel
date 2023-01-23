@@ -20,8 +20,8 @@ class CreateShopsTable extends Migration
             $table->string('shop_name',255);
             $table->string('address',255);
             $table->integer('phone_no');
-            $table->timestamp('opening_hour');
-            $table->timestamp('closing_hour');
+            $table->time('opening_hour');
+            $table->time('closing_hour');
             $table->string('token');
             $table->softDeletes('deleted_at');
             $table->string('created_emp');
