@@ -19,11 +19,11 @@ class CreateEmployeeTable extends Migration
             $table->string('employee_id');
             $table->string('employee_name');
             $table->string('password');
-            $table->timestamp('date_of_birth');
+            $table->date('date_of_birth');
             $table->string('gender');
             $table->integer('phone_number');
             $table->string('address');
-            $table->integer('role');
+            $table->string('role');
             $table->softDeletes('deleted_at');
             $table->string('created_emp');
             $table->string('updated_emp');
