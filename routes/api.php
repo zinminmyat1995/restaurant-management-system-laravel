@@ -59,8 +59,12 @@ Route::prefix('shop-and-tablet-list')->group(function () {
     Route::post('update', 'ApiControllers\ShopAndMenuTabletListController@update');
 });
 
-Route::get('/shop-registration',[App\Http\Controllers\ApiControllers\ShopRegistrationConttoller::class,"index"]);
-Route::post('/shop-registration/store',[App\Http\Controllers\ApiControllers\ShopRegistrationConttoller::class,"store"]);
+Route::post('/shop-registration/search',[App\Http\Controllers\ApiControllers\ShopRegistrationConttoller::class,"search"])->name("shopRegistrationSearch");
+Route::post('/shop-registration/store',[App\Http\Controllers\ApiControllers\ShopRegistrationConttoller::class,"store"])->name("shopRegistrationStore");
+Route::get('/shop-registration/view-edit/{id}',[App\Http\Controllers\ApiControllers\ShopRegistrationConttoller::class,"view"])->name("shopRegistrationView");
+Route::post('/shop-registration/update',[App\Http\Controllers\ApiControllers\ShopRegistrationConttoller::class,"update"])->name("shopRegistrationUpdate");
+Route::delete('/shop-registration/delete/{id}',[App\Http\Controllers\ApiControllers\ShopRegistrationConttoller::class,"delete"])->name("shopRegistrationDelete");
+
 
 
 

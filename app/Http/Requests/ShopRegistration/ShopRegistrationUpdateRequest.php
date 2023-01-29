@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\ShopRegistration;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ShopRegistrationRequest extends FormRequest
+class ShopRegistrationUpdateRequest extends FormRequest
 {
-     /**
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -26,6 +26,7 @@ class ShopRegistrationRequest extends FormRequest
     public function rules()
     {
         return [
+            'shop_key'  => "required|regex:/(^[A-Z])/u",
             'shop_code' => "required|regex:/(^[A-Za-z0-9])/u",
             'shop_name' => "required|regex:/(^[A-Za-z\s])/u",
             'address'   => "required|regex:/(^[A-Za-z\s])/u",
@@ -43,6 +44,8 @@ class ShopRegistrationRequest extends FormRequest
     public function messages()
     {
         return [
+            'shop_key.required' => "Shop key is required.",
+            'shop_key.regex'    => "Shop key must be capital letter.",
             'shop_code.required' => "Shop Code is required.",
             'shop_code.regex' => "Shop Code must be charcters and numbers.",
             'shop_name.required' => "Shop name is required.",
